@@ -16,11 +16,11 @@ let determineComputedTheme = () => {
   if (themeSetting != "system") {
     return themeSetting;
   }
-  return (userPref && userPref("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  return "light";
 };
 
 // detect OS/browser preference
-const browserPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+const browserPref = 'light'; // default to light mode unless the visitor toggles the theme
 
 // Set the theme on page load or when explicitly called
 let setTheme = (theme) => {
@@ -92,12 +92,6 @@ $(document).ready(function () {
 
   // If the user hasn't chosen a theme, follow the OS preference
   setTheme();
-  window.matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener("change", (e) => {
-          if (!localStorage.getItem("theme")) {
-            setTheme(e.matches ? "dark" : "light");
-          }
-        });
 
   // Enable the theme toggle
   $('#theme-toggle').on('click', toggleTheme);
