@@ -23,7 +23,7 @@ repository               : "aysetursucular/aysetursucular.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "pp.jpg"
+  avatar           : "profile_photo.jpg"
   name             : "Ayse Tursucular"
   pronouns         : # example: "she/her"
   bio              : "PhD student in Machine Learning at Georgia Tech"
