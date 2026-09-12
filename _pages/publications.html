@@ -1,0 +1,103 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% if site.author.googlescholar %}
+  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% endif %}
+
+{% include base_path %}
+
+<style>
+  .pub-item {
+    display: flex;
+    align-items: stretch;
+    gap: 18px;
+    margin: 0 0 1.6em 0;
+  }
+  .pub-figure {
+    flex: 0 0 200px;
+    width: 200px;
+    min-height: 110px;
+    max-height: 160px;
+  }
+  .pub-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    background: #fff;
+  }
+  .pub-content { flex: 1 1 auto; min-width: 0; }
+  .pub-title { font-weight: 700; font-size: 1.05em; margin: 0; }
+  .pub-authors { margin: 0.2em 0; }
+  .pub-venue { margin: 0.2em 0; }
+  .pub-badges { margin-top: 0.35em; }
+  .pub-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    margin-right: 4px;
+    border: 1px solid #2a6df4;
+    border-radius: 3px;
+    color: #2a6df4;
+    font-size: 0.85em;
+    text-decoration: none;
+    background: rgba(42, 109, 244, 0.05);
+  }
+  .pub-badge:hover { background: #2a6df4; color: #fff; text-decoration: none; }
+  .pub-abs-toggle { cursor: pointer; user-select: none; text-decoration: underline; }
+  .pub-abstract {
+    display: none;
+    margin-top: 0.5em;
+    padding: 8px 12px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    background: #fafafa;
+    font-size: 0.8em;
+    color: #494e52;
+    text-align: justify;
+  }
+  .pub-abstract.open { display: block; }
+  @media (max-width: 600px) {
+    .pub-item { flex-direction: column; gap: 10px; }
+    .pub-figure { flex-basis: auto; width: 100%; height: 180px; }
+  }
+</style>
+
+{% for category in site.publication_category %}
+  {% assign cat_key = category[0] %}
+  {% assign cat_title = category[1].title %}
+  {% assign cat_posts = site.publications | where: "category", cat_key | sort: "date" | reverse %}
+  {% if cat_posts.size > 0 %}
+    <h2>{{ cat_title }}</h2><hr />
+    {% for post in cat_posts %}
+      <div class="pub-item">
+        {% if post.image %}
+          <div class="pub-figure"><img src="{{ base_path }}/images/{{ post.image }}" alt=""></div>
+        {% endif %}
+        <div class="pub-content">
+          <div class="pub-title">{{ post.title }}</div>
+          <div class="pub-authors">{{ post.authors }}</div>
+          {% unless cat_key == "preprints" %}
+            <div class="pub-venue">In <em>{{ post.venue }}</em></div>
+          {% endunless %}
+          {% if post.abstract or post.paperurl or post.codeurl or post.paper %}
+            <div class="pub-badges">
+              {% if post.abstract %}<span class="pub-badge pub-abs-toggle" onclick="this.closest('.pub-content').querySelector('.pub-abstract').classList.toggle('open')">abs</span>{% endif %}
+              {% if post.paperurl %}<a class="pub-badge" href="{{ post.paperurl }}" target="_blank" rel="noopener">paper</a>{% elsif post.paper %}<span class="pub-badge">paper</span>{% endif %}
+              {% if post.codeurl %}<a class="pub-badge" href="{{ post.codeurl }}" target="_blank" rel="noopener">code</a>{% endif %}
+            </div>
+          {% endif %}
+          {% if post.abstract %}
+            <div class="pub-abstract">{{ post.abstract }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
