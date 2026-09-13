@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Ayse Tursucular, a 3rd-year PhD student in Machine Learning in the [H. Milton Stewart School of Industrial and Systems Engineering](https://www.isye.gatech.edu/) at the [Georgia Institute of Technology](https://www.gatech.edu/), advised by [Prof. Nagi Gebraeel](https://sites.gatech.edu/nagi/). Previously, I completed a B.Sc. in Industrial Engineering and a B.A. in Economics at [Koç University](https://www.ku.edu.tr/en/).
+I am Ayse Tursucular, a 3rd-year PhD student in [Machine Learning](https://ml.gatech.edu/) in the [H. Milton Stewart School of Industrial and Systems Engineering](https://www.isye.gatech.edu/) at the [Georgia Institute of Technology](https://www.gatech.edu/), advised by [Prof. Nagi Gebraeel](https://sites.gatech.edu/nagi/). Previously, I completed a B.Sc. in Industrial Engineering and a B.A. in Economics at [Koç University](https://www.ku.edu.tr/en/).
 
 My research focuses on causal inference and federated learning in interconnected physical systems. I am particularly interested in:
 
