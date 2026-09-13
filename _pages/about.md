@@ -28,6 +28,7 @@ My research focuses on causal inference and federated learning in interconnected
   <div>
     <strong>Georgia Institute of Technology</strong><br>
     Ph.D. in Machine Learning, 2024 - Present<br>
+    <span style="display: inline-block; margin-left: 1.5em; color: #888; font-size: 0.9em;">Department: Industrial and Systems Engineering</span><br>
     GPA: 4.00 / 4.00
   </div>
 </div>
